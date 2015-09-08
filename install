@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+mkdir -p ~/bin
+touch ~/.bashrc
+
+grep -q "source $HOME/env/bashrc" ~/.bashrc || echo "source $HOME/env/bashrc" >> ~/.bashrc
+source ~/.bashrc
+
+if [[ ! -f ~/.bash_profile ]]; then
+	echo ". ~/.bashrc" > ~/.bash_profile
+fi
